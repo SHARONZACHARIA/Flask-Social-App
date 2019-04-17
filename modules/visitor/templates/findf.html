@@ -1,0 +1,75 @@
+{%  extends "index1.html" %}
+ {% block body %}
+ <link href="{{ url_for('static',filename='assets/css/usercard.css')}}" rel="stylesheet"/>
+ <script src="{{ url_for('static',filename='assets/js/querydata.js')}}"></script>
+ <script src="{{ url_for('static',filename='assets/js/jquery.min.js')}}"></script>
+ <script src="{{ url_for('static',filename='assets/js/load.js')}}"></script>
+
+
+ {% with messages = get_flashed_messages() %}
+ {% if messages %}
+    <ul>
+       {% for message in messages %}
+       <div class="alert" style="padding: 20px;
+       background-color: 	#00cc66; /* Red */
+       color: white;
+       margin-bottom: 15px;">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        {{message}}
+      </div>
+       {% endfor %}
+    </ul>
+ {% endif %}
+{% endwith %}
+
+
+    <div class="searchbar" id="searchbar"> 
+      <input class="textbox" id="textbox" type ="text" name="search" placeholder="search for new friends " style="border-color:blue;
+      width:300px ; 
+      height:32px ; 
+      padding:8px;
+      margin-bottom: 16px;
+      margin-left:24px;
+      border-radius:8px">
+      <input type="button" value="Find" onclick="fetchfriendsearch()">
+      <p>you have  {{friend}} friend request(s)</p>
+     
+    </div>
+   
+<div class="friendrequest" id="friendrequest">
+    {% for d in detail %} 
+    <div class="result" id="result">
+           
+          <center>
+          <img id="{{d.uname}}" alt="{{d.filename}}" width="120px" height="120px">
+         <h4><b>{{d.fname}} {{d.lname}}</b></h4> 
+         <i>{{d.email}} </i> <br>
+         <br>
+         <a href="http://localhost:5000/acceptfriend/{{d.uname}}"> <b>Accept</b></a><br>
+         <a href="http://localhost:5000/rejectfriend/{{d.uname}}"> <b>Reject</b></a><br>
+         {% if d.login_status == 1 %}
+         <b style="color:green">online</b>
+         {% endif %}
+        </center>
+       <script type="text/javascript">
+       src = "./static/assets/uploads/profile/{{d.filename}}"
+      img = document.getElementById("{{d.uname}}").src = src
+       </script>
+       
+  </div>
+  {% endfor %}
+</div>
+ <hr>
+
+
+
+     <input id="sessionvalue" class="sessonvalue" hidden value="{{session['username']}}"}>
+  
+     <p><center>Search Results</center></p>
+  <div class="wrappers" id="wrappers" >
+   </div>
+
+
+
+
+{% endblock %}

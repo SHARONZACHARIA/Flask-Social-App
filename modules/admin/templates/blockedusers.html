@@ -1,0 +1,43 @@
+{% extends "commonhtml.html"%}
+
+{% block body %}
+
+
+
+<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12" style="min-height:700px">
+    <div class="card" style="width:800px">
+        <div class="card-header">Blocked Users</div>
+        <div class="card-body">
+            <table class="table table-hover table-inverse m-0">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Unblock</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for b in blocked_users %}
+                
+                    <tr>
+                        <th scope="row">{{loop.index}}</th>
+                       
+                        <td>{{b.fname}}</td>
+                        <td>{{b.lname}}</td>
+                        <td>{{b.uname}}</td>
+                        <td>{{b.email}}</td>
+                        <td> {{b.phone}}</td>
+                        <td>  <button type="button" class="btn btn-outline-success btn-rounded" data-uname="{{b.uname}}" onclick="unblock_user(this)">Unblock</button>  </td>
+                    </tr>
+            {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

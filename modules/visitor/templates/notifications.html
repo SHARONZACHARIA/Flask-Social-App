@@ -1,0 +1,31 @@
+{% extends "index1.html" %}
+<script src="{{ url_for('static',filename='assets/js/load.js')}}"></script>
+
+<script type="text/javascript" src="{{ url_for('static',filename='assets/js/userhomejs.js')}}"></script>
+<link href="{{ url_for('static',filename='assets/css/usercard.css')}}" rel="stylesheet"/>
+ <script src="{{ url_for('static',filename='assets/js/querydata.js')}}"></script>
+ <script src="{{ url_for('static',filename='assets/js/jquery.min.js')}}"></script>
+
+ <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" />
+        <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/usercard.css')}}" />
+        <script src="{{ url_for('static',filename='assets/js/sendmessage.js')}}"></script> 
+        <script src="{{ url_for('static',filename='assets/js/jquery.min.js')}}"></script>
+ </head>
+ 
+
+{% block body %}
+
+<strong>  &nbsp;&nbsp; Notifications</strong>
+{% for n  in notification %}
+
+ <div class="alert alert-info">
+            <button type="button" data-id ="{{n._id}}"class="close" data-dismiss="alert"  onclick='deletenotification(this)' aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <i class="icon-info-large"></i> <strong>{{n.info}}</strong> &nbsp;&nbsp; {{n.time}}
+        </div>
+    
+
+{% endfor %}
+{% endblock %}

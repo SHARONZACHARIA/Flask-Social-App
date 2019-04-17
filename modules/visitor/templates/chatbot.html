@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+{% extends "index1.html" %}
+<head>
+  <title>Chat Bot</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" />
+  <link rel="stylesheet" href="{{ url_for('static',filename='assets/css/usercard.css')}}" />
+  <script src="{{ url_for('static',filename='assets/js/sendmessageChatbot.js')}}"></script> 
+  <script src="{{ url_for('static',filename='assets/js/jquery.min.js')}}"></script>
+  <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">     </script>
+  <script src="{{ url_for('static',filename='assets/js/app-script.js')}}"></script>
+
+ <script type="text/javascript">
+
+ </script>
+
+</head>
+
+    {% block body %}
+     
+
+  
+
+    <div class="row gutters" style="margin-bottom:16px;min-height:500px ;padding:0px;max-height:500px;margin-left: 8px;width:1000px;overflow-y:scroll">
+        
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6" style="min-height:500px">
+            <div class="card" style="min-height:500px">
+                <div class="card-header">Chat</div>
+                <div class="customScroll">
+                    <div class="card-body"style="margin-top:8px">
+                        <ul class="chats" id="botchatslist">
+                           
+                           
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div>
+            <input type="text" id="botmsgtext" style="height:32px ;width:250px;margin-left: 8px" placeholder="send a message"/>
+            <input type="button" id="sendbotbtn"  class="btn btn-outline-success btn-rounded" width="100px" value="send" onclick="talktobot()"/>
+          </div>
+       </div>
+    
+
+   {% endblock %}
+  
+
+
+
+    
+
+
+
+  
+  
+
+  
+      </html>

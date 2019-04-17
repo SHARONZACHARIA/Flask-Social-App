@@ -1,0 +1,114 @@
+{% extends "index1.html" %}
+
+{% block body %}
+<script>
+function cancel_update()
+{
+    $("#statusarea").val('')
+}
+
+function show_up_btn()
+	{
+		 
+		$("#upbtn").removeAttr('hidden')
+	
+	}
+</script>
+<div id="mainbox" class="mainbox" style=" display: grid;
+grid-template-columns:20% 80%  ;
+grid-gap:2px;
+
+transition: 0.8s;
+
+align-content: center;
+margin-left:8px">
+
+
+<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6" >
+    <a class="block-300 center-text"  style="width:200px">
+        <div class="user-profile" >
+            <img src="{{ url_for('static',filename='assets/uploads/profile/') + setting.filename}}" alt="{{setting.filename}}" class="profile-thumb" alt="User Thumb">
+            <h5 class="profile-name">{{setting.fname +' '+ setting.lname}}</h5>
+            <h6 class="profile-designation">  <small>" {{setting.personal}} "  </small></h6>
+            <p class="profile-location">{{setting.job}}</p>
+            <p class="profile-location"><small>{{setting.place}}</small></p>
+            <p class="profile-location">{{setting.relationship}}</p>
+            <div class="ml-5 mr-5 chartist custom-two">
+                <div class="team-act"></div>
+            </div>
+        </div>
+    </a>
+    
+</div>
+
+
+<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6"  style="width:850px">
+    <a class="block-30 center-text" style="width:850px">
+        <div  style="width:850px">
+            <img  src="{{ url_for('static',filename='assets/uploads/covers/') + session['username']+'.jpg'}}" style="border-radius:0px; height:300px ;width:98%">
+           
+            <div class="ml-5 mr-5 chartist custom-two">
+                <div class="team-act"></div>
+            </div>
+        </div>
+    </a>
+</div>
+
+</div>
+<form name="cover_upload" action="/upload_cover" method="POST" enctype="multipart/form-data">
+    <div class="card-header">update yor cover picture</div>
+    <div class="card-body">
+        <label class="custom-file">
+            <input type="file" id="file" name="file" onclick="show_up_btn()" class="ct">
+            <span class="custom-file-control"></span>
+        </label>
+        <input id="upbtn" class="btn btn-outline-success btn-rounded"  hidden type="submit" value ="upload image"/>
+    </div>
+</form>
+
+
+
+<div class="update_status" style="padding:8px" >
+    <form name="status" action="/update_status" method="POST">
+     <textarea  id="statusarea"  value="" placeholder="update a status...." style="width:98% ;  height:150px ; border-color: indigo ; margin:8px"  name ='status'>
+     </textarea>
+     <br>
+     <button type="submit" class="btn btn-outline-success btn-rounded">Update status</button>
+     <input  name='uname'type="text" value="{{session['username']}}"hidden>
+     <button type="button" class="btn btn-outline-success btn-rounded" onclick="cancel_update()">Cancel Update</button>
+    </form>
+     
+ 
+ </div>
+
+
+
+
+ 
+<div class="row gutters" style="width:100%;align-content: center;background:#FFF">
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+        <div class="card" style="width:1000px;align-content: center;min-height:700px">
+            <div class="card-header"><strong>Status Updates</strong>  </div>
+            {% for status in status_posts %}
+            <div class="card-body" style="width:1000px">
+                <div class="list-group" style="width:100%">
+                  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 id="postid"></h5>
+                      <small id="post_time">on : {{status.time}}</small>
+                    </div>
+                    <p class="mb-1"> <br> <br> <b>{{status.status}}</b> </p>
+                    {% if status.bully_status =='[1]' %}
+                    <small style="color:red">offensive words found</small>
+                    {% endif %}
+                  </a>
+                
+                </div>
+               
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+   
+
+{% endblock %}

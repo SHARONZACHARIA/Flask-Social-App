@@ -1,0 +1,150 @@
+	<link href="{{ url_for('static',filename='assets/css/usercard.css')}}" rel="stylesheet"/>
+	<link rel="stylesheet" href="{{ url_for('static',filename='assets/css/bootstrap.min.css')}}" />
+	<link rel="stylesheet" href="{{ url_for('static',filename='assets/fonts/icomoon/icomoon.css')}}" />
+		<link rel="stylesheet" href="{{ url_for('static',filename='assets/css/main.css')}}" />
+		<script src="{{ url_for('static',filename='assets/js/jquery.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='assets/js/load.js')}}"></script>
+
+
+		<link href="{{ url_for('static',filename='assets/css/usercard.css')}}" rel="stylesheet"/>
+	</script>
+
+	<script type="text/javascript">
+	
+	function show_up_btn()
+	{
+		 
+		$("#upbtn").removeAttr('hidden')
+	
+	}
+
+	function cancel_update()
+	{
+		$("#statusarea").val('')
+	}
+	
+	</script>
+
+
+{% extends "commonpanel.html" %}
+{% block body %}
+<body>
+
+
+
+    
+  
+
+</body>
+
+
+<div class="mainbox">
+
+
+<div class="image_div">
+	
+	<img  class="pro_img" src="{{ url_for('static',filename='assets/uploads/profile/') + setting.filename}}" alt="{{setting.filename}}"  width="80px" height="80px"><br>
+	 <center> <div class="username_pro">{{setting.fname +' '+ setting.lname}}</div> </center>
+	 <center>
+	    <i>{{session['username']}} </i><br> <br>
+   <i> " {{setting.personal}} "</i>
+   </center> 
+
+	 <hr>
+
+	 <br>
+	<div class="credentials_pro"> Job :{{setting.job}} </div> <br>
+	<h6  class="credentials_pro"> Relationship : {{setting.relationship}}</h6> <br>
+	<h6 class=" credentials_pro"> Place        : {{setting.place}} </h6> <br> 
+  <h6 class="credentials_pro">  Phone No     : {{setting.phone}} </h6>	<br>
+	
+	
+	
+</div>
+
+
+
+<div class="row-gutters">
+		
+				<img  class="_img"  src="{{ url_for('static',filename='assets/uploads/covers/') + session['username']+'.jpg'}}"style="border-radius:0px; height:300px ;width:98%"/>
+				
+				<form name="cover_upload" action="/upload_cover" method="POST" enctype="multipart/form-data">
+			&nbsp;<center class="btn btn-primary"> update your cover photo<input type="file" name='file' class="btn-primary"onclick="show_up_btn()"style="margin-left:4px">  
+				<input id="upbtn" class="btn btn-primary" type="submit" value ="upload" hidden </center>
+
+		</form>
+			
+	
+</div>
+
+</div>
+
+
+<div class="center_divide">
+
+  <div class="center_side">
+	</div>
+	
+	
+ 
+
+
+
+
+  <div class="post_div">
+
+
+			<div class="update_status">
+					<form name="status" action="/update_status" method="POST">
+					 <textarea  id="statusarea"  value="" placeholder="update a status...." style="width:98% ;  height:150px ; border-color: indigo ; margin:8px"  name ='status'>
+					 </textarea>
+					 <br>
+					 <input  style="background-color: #5d36b1;
+					 border-color: #5d36b1;
+					 margin-left:16px;
+					 color: #ffffff;" type="submit" value="Update Status">
+           <input  name='uname'type="text" value="{{session['username']}}"hidden>
+					 <input type="button" value="cancel update" 
+					  style="background-color: #5d36b1;
+					 border-color: #5d36b1; color:lavender;
+					 margin-left:16px;" onclick="cancel_update()">
+					</form>
+					 
+				 
+				 </div>
+
+
+				 {%  for status in status_posts %}
+<center>
+ <div class="row gutters">
+	 
+				<div class="cards">
+					<div class="card">
+						<div class="card-header">{{status.time}}</div>
+						<div class="card-body">
+							<h4 class="card-title"></h4>
+							{% if status.bully_status =='[1]' %}
+							<p class="card-text" style="color:red">{{status.status}}</p>
+							{% else %}
+							<p class="card-text" style="width:800px">{{status.status}}</p>
+							{% endif %}
+							<hr>
+							<a href="{{url_for('visitor.delete_status', post_id = status.postid)}}" style="background:#5d36b1 ; margin:4px; color:#ffffff; width:100px; padding:3px; height:32px"> delete post </a>
+						    <a href="{{url_for('visitor.delete_status', post_id = status.postid)}}" style="background:#5d36b1 ; margin:4px; color:#ffffff; width:100px; padding:3px; height:32px"> edit post </a>
+						</div>
+					</div>
+				</div>
+		
+			</div>
+		</center>
+			{% endfor %}
+
+
+
+			
+	
+</div>
+{% endblock %}
+
+
+ 

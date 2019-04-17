@@ -1,0 +1,48 @@
+
+{%  extends "index1.html" %}
+ {% block body %}
+ <link href="{{ url_for('static',filename='assets/css/usercard.css')}}" rel="stylesheet"/>
+ <script src="{{ url_for('static',filename='assets/js/load.js')}}"></script>
+
+
+
+
+
+
+<div  id ="wrap"class="wrapper">
+  
+    {% for users in online %}
+    <center>
+<div class="box" id="box" onclick="box()" >
+    
+     
+    <img id="{{users.uname}}" alt="{{users.filename}}" width="120px" height="120px">
+    <input type="text" id="uname" hidden value="{{users.uname}}">
+   <h4><b>{{users.uname}}</b></h4> 
+   <i>{{users.email}} </i> <br>
+   <a href="{{url_for('visitor.chat')}}">Go to chat room</a><br><br>
+   {% if users.login_status==1%}
+   <b style="color:green">online</b>
+   {% endif %}
+
+   {% if users.login_status==0%}
+   <b style="color:red">offline</b>
+   {% endif %}
+
+ <script type="text/javascript">
+ src = "./static/assets/uploads/profile/{{users.filename}}"
+ img = document.getElementById("{{users.uname}}").src = src
+ 
+
+ </script>
+
+    
+    
+    
+</div>
+</center>
+{% endfor %}
+  </div>
+
+</div>
+{%  endblock %}

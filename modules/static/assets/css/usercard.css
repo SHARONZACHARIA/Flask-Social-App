@@ -1,0 +1,493 @@
+
+
+  .full{
+    display:grid;
+    grid-template-rows: 30%,30%
+    
+  }
+  
+  /* On mouse-over, add a deeper shadow */
+  .box:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  /* Add some padding inside the card container */
+  .container {
+    padding: 2px 16px;
+   
+  }
+
+  .wrapper {
+    display: grid;
+    grid-template-columns:150px 150px 150px 150px 150px 150px  ;
+    grid-gap: 25px;
+    transition: 0.8s;
+    margin-top:16px;
+    
+  }
+  
+  .box {
+    
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.8s;
+    width: 150px;
+    margin: 8px ;
+    border-radius: 5px;
+    border-radius: 8px;
+    width: 150px;
+    height:250px;
+    font-size: 80%;
+  }
+
+  img{
+    border-radius: 50%;
+    margin: 8px 8px 8px 8px;
+  }
+
+ .full{
+
+    display: grid;
+    grid-template-columns:30% 70%;
+ }
+  .sidepanel {
+    height: 100%; /* Specify a height */
+    width: 250px; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    
+    left: 0;
+   
+    align-content: center;
+    background-color: #5d36b1; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.8s; /* 0.5 second transition effect to slide in the sidepanel */
+  }
+  
+  /* The sidepanel links */
+  .sidepanel a,h1 {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 22px;
+    color: #bdb6b6;
+    display: block;
+    transition: 0.8s;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidepanel a:hover {
+    color: #f1f1f1;
+  }
+  
+  /* Position and style the close button (top right corner) */
+  .sidepanel .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  /* Style the button that is used to open the sidepanel */
+  .openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color:#5d36b1;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    width:50px
+  }
+  
+  .openbtn:hover {
+    background-color:#5d36b1;
+  }
+
+  .toggle.top-bar{
+    background:#5d36b1;
+    width: 100%;
+    height:15%;
+    margin-top: 0px;
+    margin-bottom:8px;
+    align-content: center;
+    margin-left: 50px;
+    color:#FFF
+    
+  }
+
+  .toggle{
+    display: grid;
+    grid-template-columns:20% 80%;
+    width:100%;
+    height:9%;
+    margin-top:0px;
+    align-content: center;
+    background:#5d36b1;
+  }
+.username
+{
+  margin-left:18px;
+  color:#FFFFFF;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 24px
+  
+  
+}
+.pro_img
+{
+  margin-left:64px;
+
+  
+
+}
+  
+.sidepaneldivs
+{
+ margin-left:18px;
+ width:20%;
+ font-size: 12px;
+}
+.mainbox
+{
+  display: grid;
+  grid-template-columns:20% 80%  ;
+  grid-gap: 4px;
+  
+  transition: 0.8s;
+
+  align-content: center;
+  margin-left:8px
+
+}
+
+.mainbox .pro_img
+{
+  margin-left:80px;
+}
+
+.image_div
+{
+  margin-left:4px;
+  align-content:center;
+  background: #FFF;
+  margin-top:8px;
+  margin-bottom:8px;
+}
+
+.username_pro
+{
+  font-size:16;
+  align-content: center;
+  
+ 
+ 
+}
+.credentials_pro
+{
+  margin-left:38px;
+  font-size:12;
+  font-family: Arial, Helvetica, sans-serif
+}
+
+.center_divide
+{
+  display: grid;
+  grid-template-columns:20% 80%  ;
+  grid-gap: 2px;
+  
+  transition: 0.8s;
+
+  align-content: center;
+  
+}
+.center_side
+{
+  margin-left:8px;
+  align-content:center;
+  background: #FFF;
+  margin-bottom:8px;
+  padding:16px;
+  margin-top:8px;
+}
+
+.center_side h6{
+
+font-family: Arial, Helvetica, sans-serif;
+font-size:16px;
+}
+
+.row-gutters
+{
+  background: #FFF;
+  padding-bottom:16px;
+  margin-bottom:8px;
+  margin-top:8px;
+}
+
+.post_div
+{
+  display: grid;
+  grid-template-columns:1fr;
+  grid-gap: 4px;
+  
+  transition: 0.8s;
+   margin-left:8px;
+  align-content: center;
+}
+.mainbox.center_divide.post_div.div1
+{
+  background:#FFF
+}
+
+
+
+.rowgutters.update_cover
+{
+  color: #5d36b1;
+}
+
+.center_divide.post_div.update_status
+{
+  background: #FFFFFF
+  
+}
+.settings_data input[type="text"]
+{
+  border:2px solid rgb(102, 91, 91);
+  width:350px;
+  margin-bottom:16px;
+  margin-top: 16px;
+  height: 32px ;
+  padding:8px;
+  margin-left:8px;
+  border-radius:4px;
+}
+.settings_data input[type="number"]
+{
+  border:2px solid rgb(102, 91, 91);
+  width:350px;
+  margin-bottom:16px;
+  margin-top: 16px;
+  height: 32px ;
+  margin-left:8px;
+  border-radius:4px;
+}
+
+.settings_data textarea
+{
+  border:2px solid rgb(102, 91, 91);
+  width:350px;
+  margin-bottom:16px;
+  margin-top: 16px;
+  height: 80px ;
+  margin-left:8px;
+  border-radius:4px;
+}
+.settings_data input[type="submit"]
+{
+  border: solid #5d36b1;
+  color: #FFFFFF;
+  width:350px;
+  background: #5d36b1;
+  margin-bottom:16px;
+  margin-top: 16px;
+  height:32px ;
+  margin-left:8px;
+  border-radius:4px;
+}
+.settings_data input[type="email"]
+{
+  border: 2px solid rgb(102, 91, 91);
+  
+  width:350px;
+
+  margin-bottom:16px;
+  margin-top: 16px;
+  height:32px ;
+  margin-left:8px;
+  border-radius:4px;
+}
+
+.settings_data.inner_settings
+{
+  
+}
+
+.settings_data.inner_settings input[type="submit"]
+{
+  border: solid #5d36b1;
+  color: #FFFFFF;
+  width:350px;
+  background: #5d36b1;
+  margin-bottom:16px;
+  margin-top: 16px;
+  height:32px ;
+  margin-left:8px;
+  border-radius:4px;
+}
+.mainbox .center_divide .post_div .row-gutters .cards  .card .card-body .buttoncss{
+ height:12px;
+ width:100px;
+ background: #5d36b1
+
+}
+
+.status_updates
+{
+  margin:2px;
+  padding:16px;
+  color:#000;
+  background: #FFF;
+  
+  
+}
+.status_updates hr{
+
+  height:2px;
+  background:rgb(199, 194, 194)
+}
+
+.maincard{
+
+  display: grid;
+  grid-template-columns:1fr  ;
+  grid-gap: 4px;
+   margin-top: 8px;
+  transition: 0.8s;
+  
+  align-content: center;
+  
+
+}
+.stabody{
+  background: rgb(219, 221, 223)
+}
+
+.serach_div input[type="text"]{
+  width:300px;
+  align-content: center;
+  border-color: blueviolet;
+  
+}
+.serach_div
+{
+width:100%;
+align-content: center;
+border:#46bedb;
+margin-left:24px;
+}
+.searchbar
+{
+  
+}
+.searchbar input[type="button"]
+{
+  height:32px;
+  background: #5d36b1;
+  color:white;
+  border-color: #5d36b1;
+  border-radius: 4px;
+  width:100px;
+  margin-top:32px;
+  
+
+
+
+}
+.mains.results{
+    
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.8s;
+  width: 150px;
+  margin: 8px ;
+  border-radius: 5px;
+  border-radius: 8px;
+  width: 150px;
+  height:250px;
+  font-size: 80%;
+}
+
+.wrappers{
+display: grid;
+grid-template-columns:150px 150px 150px 150px 150px 150px  ;
+grid-gap: 25px;
+transition: 0.8s;
+margin-top:32px;
+margin-left:24px;
+}
+
+.searchbar
+{
+  
+  margin-top: 16px;
+  transition: 0.8s
+}
+.searchbar p
+{
+  background: #46bedb;
+color:white;
+width:200px;
+padding:4px;
+border-radius:4px;
+margin-left:24px;
+}
+.friendrequest
+{
+  display: grid;
+grid-template-columns:150px 150px 150px 150px 150px 150px  ;
+grid-gap: 25px;
+transition: 0.8s;
+}
+#result.result{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.8s;
+    width: 150px;
+    margin: 8px ;
+    border-radius: 5px;
+    border-radius: 8px;
+    width: 150px;
+    height:250px;
+    font-size: 80%;
+}
+p center
+{
+  background: #46bedb;
+  color:white;
+  width:200px;
+  padding:4px;
+  border-radius:4px;
+}
+
+.center_divide .sidepane #user_ids{
+
+  color:#5d36b1;
+  padding:8px;
+
+} 
+
+.center_divide.sidepane
+{
+  overflow-y:scroll;
+  max-height: 500px;
+  float:left;
+
+}
+
+.center_divide .chatbox
+{
+  display: grid;
+  grid-template-rows:550px 50px  ;
+  grid-gap: 4px;
+  
+  transition: 0.8s;
+   overflow: auto;
+  align-content: center;
+  margin-left:8px
+}
+.center_divide .chatbox #message_list
+{
+  overflow:auto;
+  padding:8px;
+  margin:8px;
+}

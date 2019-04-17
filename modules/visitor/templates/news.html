@@ -1,0 +1,26 @@
+
+{% extends "index1.html "%}
+
+{% block body %}
+<div  style="display:grid;
+grid-template-columns:300px 300px 300px;
+grid-gap: 30px" >
+{% for n in newsdatas %}
+
+
+
+  
+        <div class="card" >
+            <img class="card-img-top" src="{{n.urlToImage}}" alt="Card image cap">
+            <div class="card-body">
+                <h4 class="card-title">{{n.title}}</h4>
+                <p class="card-text">{{n.description}}.</p>
+                <a href="{{n.url}}" target='_blank' class="btn btn-primary">View Full Article</a>
+            </div>
+        </div>
+    
+
+
+{% endfor %}
+</div>
+{% endblock %}

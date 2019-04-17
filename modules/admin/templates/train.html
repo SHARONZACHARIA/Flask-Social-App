@@ -1,0 +1,12 @@
+{% extends "commonhtml.html"%}
+
+{% block body %}
+
+
+<div class="form-group m-0" style="padding:32px ; min-height:800px" >
+        <label for="exampleFormControlTextarea1">Update the chatbot knowledge</label>
+        <textarea class="form-control" id="chatbotdatatext" rows="15"></textarea> <br>
+        <button type="button" class="btn btn-outline-success btn-rounded" onclick="updateChatbot()">Upload Data</button>
+    </div>
+
+{% endblock %}

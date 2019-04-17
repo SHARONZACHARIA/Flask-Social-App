@@ -1,0 +1,35 @@
+{% extends "commonhtml.html" %}
+
+{% block body %}
+<script src="{{ url_for('static',filename='assets/js/adminoperations.js')}}"></script>
+
+<div class="row gutters" style="width:100%;align-content: center;background:#FFF">
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+        <div class="card" style="width:1000px;align-content: center;min-height:700px">
+            <div class="card-header">Cyber Offensive Contents Found</div>
+            {% for d in data %}
+            <div class="card-body" style="width:1000px">
+                <div class="list-group" style="width:100%">
+                  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                      <h5 id="postid">{{d.postid}}</h5>
+                      <small id="post_time">on : {{d.time}}</small>
+                    </div>
+                    <p class="mb-1">post contents : <br> <br> <b>{{d.status}}</b> </p>
+                    <small style="color:blue"> post owner : {{d.uname}}</small>
+                  </a>
+                
+                </div>
+                <br>
+                <button type="button" class="btn btn-outline-success btn-rounded" id={{d.uname}} data-uname="{{d.uname}}" data-time="{{d.time}}" data-email="{{d.email}}" data-postid="{{d.postid}}" onclick="sendmail(this)">Send E-mail</button>
+                <button type="button" class="btn btn-outline-success btn-rounded"onclick="deletepost(this)" data-postid="{{d.postid}}">Delete Post</button>
+                <button type="button" data-uname="{{d.uname}}" class="btn btn-outline-success btn-rounded"onclick="block(this)">Block User</button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+   
+       
+        
+
+{% endblock %}

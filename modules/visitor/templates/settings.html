@@ -1,0 +1,150 @@
+
+{% extends "index1.html" %}
+{% block body %}
+<html>
+<head>
+<title> settings</title>
+</head>
+
+ <link href="{{ url_for('static',filename='assets/css/usercard.css')}}" rel="stylesheet"/>
+
+ <script type="text/javascript" src="{{ url_for('static',filename='assets/js/userhomejs.js')}}"></script>
+ <script rel="stylesheet" src="{{ url_for('static',filename='assets/css/settings.css')}}"></script>
+
+ <script type="text/javascript"> </script>
+   
+            
+ {% with messages = get_flashed_messages() %}
+ {% if messages %}
+    <ul>
+       {% for message in messages %}
+       <div class="alert" style="padding: 20px;
+       background-color:green; /* Red */
+       color: white;
+       width:300px;
+       border-radius:8px;
+       margin-bottom: 15px;">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#10004; {{message}}
+      </div>
+       {% endfor %}
+    </ul>
+ {% endif %}
+{% endwith %}
+        
+            
+           
+    <center>
+
+    
+
+    <form class="settings_data" name="settings" action="/update_settings" method='POST' enctype="multipart/form-data">
+       <br>
+       <br>
+
+        <div class="inner_settings">
+         <img  class="pro_img" src="{{ url_for('static',filename='assets/uploads/profile/') + setting.filename}}" alt="{{setting.filename}}"   width="130px" height="130px">
+           <br>
+       <input type="text"  style ="color:#FFF;background: rgb(87, 202, 87); border-color: #FFF ;align-content: center" 
+       name ="username"  value ="{{session['username']}}  (username )" disabled /> <br> 
+       <div class="card-header">update yor profile picture</div>
+       <div class="card-body">
+           <label class="custom-file">
+               <input type="file" id="file" name="file" onclick="show_up_btn()" class="ct">
+               <span class="custom-file-control"></span>
+           </label>
+           <input id="upbtn" class="btn btn-outline-success btn-rounded"  hidden type="submit" value ="upload image"/>
+       </div>
+     
+         <br>
+         <br>
+        </div>
+
+       
+        First Name <br>
+       <input type="text" name ="fname"  pattern ="^[A-Za-z]+" value="{{setting.fname}}" /> <br> 
+
+       Last Name  <br>
+       <input type="text" name ="lname"  pattern ="^[A-Za-z]+" value="{{setting.lname}}" /> <br> 
+
+        Address <br>
+        <input type="text" name ="address" value="{{setting.address}}" /> <br>
+
+
+        Gender <br>
+        <select  name = 'gender'  style=" border:2px solid rgb(102, 91, 91);
+        width:350px;
+        margin-bottom:16px;
+        margin-top: 16px;
+        height: 32px ;
+        margin-left:8px;
+        border-radius:4px;">
+        <option selected>{{setting.gender}}</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        </option>
+
+       </select><br>
+
+
+        Phone No  <br>
+       <input type="number" name ="phone"   pattern ="^[6-9]\d{9}$" value="{{setting.phone}}"/> <br>
+
+
+       E-mail  <br>
+       <input type="email" name ="email" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" value="{{setting.email}}"/> <br>
+
+        Job <br>
+       <select  name='job'style=" border:2px solid rgb(102, 91, 91);
+        width:350px;
+        margin-bottom:16px;
+        margin-top: 16px;
+        height: 32px ;
+        margin-left:8px;
+        border-radius:4px;">
+        <option value="{{setting.job}}" selected>{{setting.job}}</option>
+        <option value="Student">student</option>
+        <option value="Working">Working</option>
+        <option value="Not employeed">Not Employeed</option>
+
+       </select>
+       <br>
+
+
+       Relationship Status <br>
+       <select name ='relationship'style=" border:2px solid rgb(102, 91, 91);
+        width:350px;
+        margin-bottom:16px;
+        margin-top: 16px;
+        height: 32px ;
+        margin-left:8px;
+        border-radius:4px;">
+        <option value="{{setting.job}}" selected>{{setting.rlshp}}</option>
+        <option value="Single"selected>Single</option>
+        <option value="Married">Married</option>
+        <option value="Not employeed">Complicated</option>
+
+       </select> <br>
+       Personal Note 
+       <br>
+       <textarea name='personal'> {{setting.personal}}  </textarea>
+       
+      
+       <br>
+       <br>
+       
+            
+
+       <input type="submit" value="Update Profile"/>
+
+       
+
+     </form>
+        
+    </table>
+</center>
+
+
+
+
+{% endblock %}

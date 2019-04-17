@@ -1,0 +1,39 @@
+{% extends "index1.html" %}
+
+{% block body %}
+
+<body  class ="stabody">
+    <link href="{{ url_for('static',filename='assets/css/usercard.css')}}" rel="stylesheet"/>
+    <link href="{{ url_for('static',filename='assets/css/.css')}}" rel="stylesheet"/>
+    <script src="{{ url_for('static',filename='assets/js/load.js')}}"></script>
+</body>
+
+
+
+
+
+
+
+ <div class="maincard" id="maincard">
+
+   
+   {% for s in status %}
+
+
+
+    <div class="status_updates">
+         <img class="avatar" alt="48x48" src="{{ url_for('static',filename='assets/uploads/profile/') + s.propic }}" alt="{{s.propic}}" width="72px" height="72px">
+        {{s.uname}} posted on 
+        <span class="date-time">{{s.time}}</span>
+        <div class="body">
+            <br>{{s.status}} 
+        </div>
+       
+    </div>  
+    {% endfor %}  
+ </div>
+
+
+
+
+{% endblock %}
