@@ -7,7 +7,7 @@
   -  chat
   -  chatbot 
   -  cyber bullying detection in chat with sci-kit Learn (Random forest classifier)
-  -  Admin can find cyber buyyling contents and take actions 
+  -  Admin can find cyber bullying contents and take actions 
    
    
 ### Frameworks and Libraries used 
